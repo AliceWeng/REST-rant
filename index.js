@@ -12,7 +12,7 @@ app.get("/", (request, response) => {
 });
 
 app.get("*", (request, response) => {
-    response.status(404).send("<h1>404 Page<h1/>")
+    response.render("error404");
 });
 
 const PORT = process.env.PORT;
@@ -21,3 +21,4 @@ app.listen(PORT, () => {
 });
 
 // response.send();
+// response.status().send();
