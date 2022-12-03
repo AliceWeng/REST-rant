@@ -1,5 +1,5 @@
 const React = require("react");
-const def = require("../default");
+const Default = require("../default");
 
 function index(data) {
     let placesFormatted = data.places.map(place => {
@@ -11,12 +11,12 @@ function index(data) {
         )
     });
     return (
-        <def>
+        <Default>
             <main>
                 <h1>Places Index Page</h1>
                 {placesFormatted}
             </main>
-        </def>
+        </Default>
     )
 }
 
