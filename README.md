@@ -2,9 +2,9 @@
 
 REST-rant is an app where users can review restaurants.
 
-## routes
+## Routes
 
-| method | path                     | purpose                                          |
+| Method | Path                     | Purpose                                          |
 | ------ | ------------------------ | ------------------------------------------------ |
 | GET    | /                        | home page                                        |
 | GET    | /places                  | places index page                                |
@@ -18,9 +18,9 @@ REST-rant is an app where users can review restaurants.
 | DELETE | /places/:id/rant/:rantId | delete a rant (comment) about a particular place |
 | GET    | *                        | 404 page (matches any route not defined above)   |
 
-## places
+## Places
 
-| field    | type   |
+| Field    | Type   |
 | -------- | ------ |
 | name     | string |
 | city     | string |
