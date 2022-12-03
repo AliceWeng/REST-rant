@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-align: center;
 }
 body {
     display: flex;
@@ -11,6 +10,7 @@ body {
     min-height: 100vh;
 }
 h1 {
+    text-align: center;
     color: cornflowerblue;
 }
 img {
