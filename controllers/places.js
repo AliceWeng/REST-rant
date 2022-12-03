@@ -19,4 +19,8 @@ router.get("/", (request, response) => {
     response.render("places/index", {places});
 });
 
+router.get("/new", (request, response) => {
+    response.render("places/new");
+});
+
 module.exports = router;
