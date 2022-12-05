@@ -13,7 +13,7 @@ router.get("/:id", (request, response) => {
     let id = Number(request.params.id);
     if(isNaN(id) || !places[id]) {
         response.render("error404");
-    } else response.render("places/show", {place: places[id]});
+    } else response.render("places/show", {place: places[id], id});
 });
 
 router.post("/", (request, response) => {
@@ -28,6 +28,16 @@ router.post("/", (request, response) => {
     }
     places.push(request.body);
     response.redirect("/places");
+});
+
+router.delete("/:id", (request, response) => {
+    let id = Number(request.params.id);
+    if(isNaN(id) || !places[id]) {
+        response.render("error404");
+    } else {
+        places.splice(id, 1);
+        response.redirect("/places");
+    }
 });
 
 module.exports = router;

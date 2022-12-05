@@ -40,11 +40,15 @@ h1, h2 {
     color: var(--cornflowerblue);
     text-align: center;
 }
+h2 a {
+    text-decoration: none;
+}
 img {
-    max-height: 500px;
+    max-width: 300px;
 }
 main {
     background: white;
+    border-radius: 1em;
     padding: 1.5em;
 }
 footer {
@@ -52,4 +56,11 @@ footer {
     min-height: 50px;
     margin-top: 1em;
     width: 100%;
+}
+.block {
+    display: inline-block;
+    margin: 1em;
+    padding: 1em;
+    border-radius: 1em;
+    background: #cbddff;
 }
