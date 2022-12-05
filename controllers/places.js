@@ -16,6 +16,15 @@ router.get("/:id", (request, response) => {
     } else response.render("places/show", {place: places[id], id});
 });
 
+router.get("/:id/edit", (request, response) => {
+    let id = Number(request.params.id);
+    if(isNaN(id) || !places[id]) {
+        response.render("error404");
+    } else {
+        response.render("places/edit", {place: places[id]});
+    }
+});
+
 router.post("/", (request, response) => {
     if(!request.body.pic) {
         request.body.pic = "http://placekitten.com/400/400";
