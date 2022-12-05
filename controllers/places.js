@@ -21,7 +21,26 @@ router.get("/:id/edit", (request, response) => {
     if(isNaN(id) || !places[id]) {
         response.render("error404");
     } else {
-        response.render("places/edit", {place: places[id]});
+        response.render("places/edit", {place: places[id], id});
+    }
+});
+
+router.put("/:id", (request, response) => {
+    let id = Number(request.params.id);
+    if(isNaN(id) || !places[id]) {
+        response.render("error404");
+    } else {
+        if(!request.body.pic) {
+            request.body.pic = "http://placekitten.com/400/400";
+        }
+        if(!request.body.city) {
+            request.body.city = "Anytown";
+        }
+        if(!request.body.state) {
+            request.body.state = "USA";
+        }
+        places[id] = request.body;
+        response.redirect(`/places/${id}`);
     }
 });
 
