@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-align: center;
 }
 :root {
     --cornflowerblue: cornflowerblue;
@@ -38,7 +39,6 @@ nav a:hover {
 }
 h1, h2 {
     color: var(--cornflowerblue);
-    text-align: center;
 }
 h2 a {
     text-decoration: none;
