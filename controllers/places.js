@@ -60,12 +60,19 @@ router.post("/", (request, response) => {
         .then(() => {
             response.redirect("/places");
         })
-        .catch(() => {
-            response.render("error404");
+        .catch(error => {
+            if(error && error.name == "ValidationError") {
+                let message = "Validation Error: ";
+                response.render("places/new", {message})
+            } else response.render("error404");
         })
 });
 
 router.delete("/:id", (request, response) => {
+    /*db.Place.findByIdAndDelete(request.params.id)
+        .then(deletedBread => {
+            response.redirect("/places")
+        })*/
     let id = Number(request.params.id);
     if(isNaN(id) || !places[id]) {
         response.render("error404");
