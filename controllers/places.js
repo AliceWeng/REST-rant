@@ -34,6 +34,9 @@ router.get("/:id/edit", (request, response) => {
         .then(place => {
             response.render("places/edit", {place});
         })
+        .catch(() => {
+            response.render("error404");
+        })
 });
 
 router.get("/:id/comment", (request, response) => {
@@ -47,6 +50,9 @@ router.put("/:id", (request, response) => {
     db.Place.findByIdAndUpdate(request.params.id, request.body)
         .then(() => {
             response.redirect(`/places/${request.params.id}`);
+        })
+        .catch(() => {
+            response.render("error404");
         })
 });
 
@@ -86,8 +92,11 @@ router.post("/:id/comment", (request, response) => {
 
 router.delete("/:id", (request, response) => {
     db.Place.findByIdAndDelete(request.params.id)
-        .then(deletedBread => {
-            response.redirect("/places")
+        .then(() => {
+            response.redirect("/places");
+        })
+        .catch(() => {
+            response.render("error404");
         })
 });
 

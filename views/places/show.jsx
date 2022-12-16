@@ -7,7 +7,25 @@ function show(data) {
             No comments yet!
         </h3>
     )
+    let rating = (
+        <h3 className="inactive">
+            Not yet Rated.
+        </h3>
+    )
     if(data.place.comments.length) {
+        let sumRatings = data.place.comments.reduce((tot, c) => {
+            return tot + c.stars
+        }, 0)
+        let averageRating = Math.round(sumRatings/data.place.comments.length)
+        let stars = ""
+        for(let i = 0; i < averageRating; i++) {
+            stars += "⭐"
+        }
+        rating = (
+            <h3>
+                {stars} stars
+            </h3>
+        )
         comments = data.place.comments.map(c => {
             return (
                 <div className="border">
@@ -28,8 +46,8 @@ function show(data) {
                     <img src={data.place.pic} alt={data.place.name}/>
                     <div>
                         <h1>{data.place.name}</h1>
-                        <h2>Rating</h2>
-                        <p>Not Rated</p>
+                        <h2></h2>
+                        <p>{rating}</p>
                         <h2>Description</h2>
                         <p>{`Located in ${data.place.city}, ${data.place.state} and serving ${data.place.cuisines}`}</p>
                     </div>
